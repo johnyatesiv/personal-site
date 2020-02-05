@@ -7,6 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #b4b4b4;
 }
 article,
 aside,
@@ -618,5 +619,56 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+
+  #layout-container {
+    margin: 15% auto;
+    padding: 2%;
+    max-width: 100vw;
+    text-align: center;
+    /*padding: 0 1.0875rem 1.45rem;*/
+  }
+
+  #layout-footer {
+    bottom: 0;
+    font-size: 1rem;
+    margin-top: 1%;
+  }
+
+  #layout-main-container {
+    margin-top: auto;
+    height: 100%;
+    overflow: scroll;
+    background: url('/static/images/forest_background.jpg');
+  }
+
+  .header-card {
+    margin-bottom: 2%;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  #layout-container {
+    margin: 5% auto;
+    padding: 1%;
+    max-width: 100vw;
+    /*padding: 0 1.0875rem 1.45rem;*/
+  }
+
+  #layout-footer {
+    bottom: 0;
+    font-size: 0.75rem;
+    text-align: right;
+  }
+
+  #layout-main-container {
+    margin-top: auto;
+    height: 100vh;
+    overflow: scroll;
+    background: url('/static/images/forest_background.jpg');
+  }
+
+  .header-card {
+    margin-bottom: 2%;
   }
 }
