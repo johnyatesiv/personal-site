@@ -18,21 +18,20 @@ const IndexPage = () => (
     <Layout>
         <SEO title='About me' />
         <div>
-            <Card id="index-card">
-                <CardContent>
+            <Card id="index-card" className="fadein-2">
+                <CardContent id="index-card-content" className="fadein-2">
                     <CardMedia id="index-card-media">
-                        <img id="headshot-image" src={Headshot}></img>
+                        <img id="headshot-image" src={Headshot} className="fadein-5"></img>
                     </CardMedia>
                     <Typography>
                         <p>
-                            Hey there! I'm John Yates and I'm a full stack Javascript developer with experience managing teams in Agile environments.
-                            <br/>
+                            <h2>Hey there!</h2> I'm John Yates and I'm a full stack Javascript developer with experience managing teams in Agile environments.
                             <br/>
                             My career has mostly revolved around startups in the San Diego area, and
                             I enjoy working on exciting projects using cutting edge technology.
-                        </p>
-                        <p>
+                            <br/>
                             I'm always looking to learn new things and I'm interested in networking and checking out new projects.
+                            <br/>
                             If you have an interesting project and need people involved, feel free to reach out!
                         </p>
                     </Typography>

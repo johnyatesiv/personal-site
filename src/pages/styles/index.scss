@@ -1,3 +1,5 @@
+@import './animations';
+
 @media only screen and (max-width: 480px) {
   #headshot-image {
     max-width: 50%;
@@ -27,16 +29,40 @@
     border-radius: 15px;
   }
 
+  .fadein-5 {
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 5s; /* Firefox < 16 */
+    -ms-animation: fadein 5s; /* Internet Explorer */
+    -o-animation: fadein 5s; /* Opera < 12.1 */
+    animation: fadein 5s;
+  }
+
+  .fadein-2 {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+  }
+
   #index-card {
-    max-height: 100vh;
-    overflow: scroll;
+    height: auto;
+    //max-height: auto;
+    overflow: visible;
+    border-radius: 20px;
   }
 
   #index-card-media {
-    background: rgba(0, 0, 0, 0.2);
+    //background: rgba(0, 0, 0, 0.2);
+    background: url('/static/images/forest-background.jpg');
     border-radius: 10px;
     text-align: center;
     margin-bottom: 1%;
     padding: 1%;
+  }
+
+  #index-card-content {
+    height: auto;
+    overflow: visible;
   }
 }
