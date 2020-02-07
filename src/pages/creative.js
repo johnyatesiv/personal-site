@@ -24,7 +24,7 @@ const Creative = () => (
                     Three.js
                 </Typography>
                 <Typography type='body2' color='textSecondary' component='p'>
-                    Three.js is a great library and it's tons of fun to make all sorts of animations with it
+                    Three.js is a great library, I had a ton of fun making all sorts of animations.
                 </Typography>
             </CardContent>
         </Card>
@@ -35,7 +35,7 @@ const Creative = () => (
                 </Typography>
                 <iframe width='100%' height='300' scrolling='no' frameborder='no' allow='autoplay' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/2142791&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'></iframe>
                 <Typography type='body2' color='textSecondary' component='p'>
-                    Random mixes and experiments with different VSTs and synths
+                    Various mixes and experiments with different VSTs and synthesizers.
                 </Typography>
             </CardContent>
         </Card>
@@ -48,7 +48,7 @@ const Creative = () => (
                 </Typography>
                 <iframe style={{border: 0, width: '100%', height: '120px'}} src='https://bandcamp.com/EmbeddedPlayer/album=859832802/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/' seamless><a href='http://deirdreanbhroin.bandcamp.com/album/aoibhneas-mac-lir'></a></iframe>
                 <Typography type='body2' color='textSecondary' component='p'>
-                    Initially started as a way to practice the Irish language, which I'm learning
+                    Initially started as a way to practice the Irish language, I ended up writing a lot of material.
                 </Typography>
             </CardContent>
         </Card>

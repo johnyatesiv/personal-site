@@ -10,3 +10,11 @@
     color: black;
     font-size: 1rem;
 }
+
+.header-app-bar {
+    background: #cdcdcd;
+}
+
+.app-bar-icon {
+    color: black;
+}

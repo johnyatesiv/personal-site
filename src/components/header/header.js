@@ -29,7 +29,7 @@ const Header = (props) => {
     return (
         <header id="header">
             <div className="header-wrapper">
-                <AppBar>
+                <AppBar class="header-app-bar">
                     <HeaderMenu />
                 </AppBar>
             </div>
