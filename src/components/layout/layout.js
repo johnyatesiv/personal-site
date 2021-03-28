@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../header/header"
-import "./layout.css"
+import "./layout.scss"
 import ForestBackground from "../../images/forest_background.jpg";
 
 const layoutContainerStyles = {
@@ -34,9 +34,7 @@ const Layout = ({ children }) => {
       <div id="layout-container" style={layoutContainerStyles}>
         <main id="layout-main-container">{children}</main>
         <footer id="layout-footer">
-          © {new Date().getFullYear()}, built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> and <a href="https://material-ui.com">Material UI</a>
+          © John Yates {new Date().getFullYear()}
         </footer>
       </div>
     </>

@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+#header {
+  background: $color-primary;
+}
+
+.header-wrapper {
+  background: $color-quartenary;
+}
+
+.header-link {
+  color: black;
+  font-size: 1rem;
+}
+
+.header-app-bar {
+  background: #cdcdcd;
+}
+
+.app-bar-icon {
+  color: black;
+}

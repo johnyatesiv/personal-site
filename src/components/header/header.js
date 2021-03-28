@@ -2,21 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import HeaderMenu from "./headerMenu";
 import { Hidden, Drawer, AppBar, MenuIcon, Toolbar, IconButton, Typography, Button } from "@material-ui/core"
-import "./header.css";
-
-const classes = {
-    toolbar: '',
-    drawerPaper: {
-        width: `320px`,
-        background: `#CDCDCD`
-    },
-    menuButton: {
-
-    },
-    title: {
-
-    }
-}
+import "./header.scss";
 
 const Header = (props) => {
     const { container } = props;

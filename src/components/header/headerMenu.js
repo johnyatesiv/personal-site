@@ -18,7 +18,6 @@ const classes = {
 const menuItems = [
     { display: 'About Me', link: '/', icon: <AccountIcon className="app-bar-icon"/> },
     { display: 'Resume', link: '/resume', icon: <DescriptionIcon className="app-bar-icon"/> },
-    { display: 'Creative', link: '/creative', icon: <MusicIcon className="app-bar-icon"/> },
     { display: 'Github', external: true, link: 'https://github.com/johnyatesiv', icon: <GitHubIcon className="app-bar-icon"></GitHubIcon> },
     { display: 'LinkedIn', external: true, link: 'https://www.linkedin.com/in/john-yates-web', icon: <LinkedInIcon className="app-bar-icon"></LinkedInIcon> },
     //{ display: 'Contact', link: '/contact', icon: <InboxIcon></InboxIcon> },
