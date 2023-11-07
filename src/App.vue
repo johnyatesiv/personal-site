@@ -10,13 +10,13 @@
     <div className="content slow-fade-in">
       Check out what I'm up to
       <div className="links">
-        <a className="link" href="https://github.com/johnyatesiv">
+        <a className="link" href="https://github.com/johnyatesiv" target="blank" rel="noopener noreferrer">
           <v-icon name="px-git-commit" scale="2" /> Code
         </a>
-        <a className="link" href="https://swordsandsoftware.substack.com">
+        <a className="link" href="https://swordsandsoftware.substack.com" target="blank" rel="noopener noreferrer">
           <v-icon name="px-bookmark" scale="2" /> Writing
         </a>
-        <a className="link" href="https://soundcloud.com/jryates">
+        <a className="link" href="https://soundcloud.com/jryates" target="blank" rel="noopener noreferrer">
           <v-icon name="px-headphone" scale="2" /> Music
         </a>
       </div>
