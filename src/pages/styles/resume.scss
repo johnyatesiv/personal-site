@@ -1,0 +1,29 @@
+@import './animations';
+
+@media screen and (max-width: 480px) {
+  .resume-panel {
+    min-height: 150px;
+    margin: 2%;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .resume-panel {
+    min-height: 150px;
+    margin: 2%;
+  }
+}
+
+.resume-panel {
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+.resume-heading {
+  margin-top: 3%;
+}
