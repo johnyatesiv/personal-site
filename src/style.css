@@ -87,7 +87,79 @@ button:focus-visible {
 }
 
 @media screen and (max-width: 600px) {
+  #app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+
   :root {
     
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(66deg, #4f556d, #288ec9);
+  background-size: 400% 400%;
+  animation: ripple 16s ease infinite;
+}
+
+@keyframes ripple {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sparkle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sparkle-background::before,
+.sparkle-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 1px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 2px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 2px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  animation: sparkle 10s linear infinite;
+}
+
+.sparkle-background::after {
+  background-size: 200px 200px, 300px 300px, 250px 250px, 400px 400px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  animation-duration: 15s;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
