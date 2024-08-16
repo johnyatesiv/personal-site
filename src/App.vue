@@ -126,7 +126,7 @@
   }
 
   .portrait {
-    background-image: url("./assets/sloth.jpg");
+    background-image: url(/sloth.jpg);
     background-size: contain;
     width: 300px !important;
     height: 300px !important;
@@ -220,7 +220,7 @@
 }
 
 .portrait {
-  background-image: url(sloth.jpg);
+  background-image: url(/sloth.jpg);
   background-size: contain;
   width: 400px;
   height: 400px;
