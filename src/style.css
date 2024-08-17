@@ -66,9 +66,13 @@ button:focus-visible {
   padding: 2em;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 2rem;
   text-align: center;
 }
@@ -103,9 +107,9 @@ html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: linear-gradient(66deg, #4f556d, #288ec9);
+  background: linear-gradient(66deg, #288ec9, #4f556d);
   background-size: 400% 400%;
-  animation: ripple 16s ease infinite;
+  animation: ripple 6s ease;
 }
 
 @keyframes ripple {
