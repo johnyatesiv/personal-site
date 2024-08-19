@@ -107,9 +107,17 @@ html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: linear-gradient(66deg, #288ec9, #4f556d);
+  background: linear-gradient(45deg, #288ec9, #656e91);
   background-size: 400% 400%;
   animation: ripple 6s ease;
+}
+
+.section {
+  
+}
+
+.footer {
+  margin-top: 120px;
 }
 
 @keyframes ripple {
@@ -165,5 +173,71 @@ html {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.blinking {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+    font-size: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.2;
+    font-size: 1.4rem;
+  }
+  to {
+    opacity: 1;
+    font-size: 2rem;
+  }
+}
+
+@keyframes slowFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.1;
+  }
+}
+
+@keyframes unpop {
+  to {
+    scale: 1;
   }
 }
