@@ -107,9 +107,12 @@ html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: linear-gradient(45deg, #288ec9, #656e91);
+  background: linear-gradient(66deg, #000000, #656e91);
+  /* background-color: black; */
+  /* color: white; */
   background-size: 400% 400%;
-  animation: ripple 6s ease;
+  /* animation: ripple 6s ease; */
+  color: white;
 }
 
 .section {
@@ -118,6 +121,15 @@ html {
 
 .footer {
   margin-top: 120px;
+  color: white;
+  p {
+    color: white;
+  }
+
+  a { 
+    color: white;
+    cursor: pointer;
+  }
 }
 
 @keyframes ripple {

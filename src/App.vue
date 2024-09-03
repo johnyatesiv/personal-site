@@ -1,4 +1,54 @@
 <script setup lang="ts">
+  const jobs = [
+    {
+      start: "2021",
+      end: "Present",
+      companyName: "BallerTV",
+      title: "Tech Lead",
+      bulletPoints: [
+        "Lead developer for operations and scalability team",
+        "Leader in steering committees improving developer experience, DevOps and test automation",
+        "Provided on-call support to operations team executing content production nationwide",
+        "Improved tech stack leading to improved developer experience and faster feature turnaround"
+      ]
+    },
+    {
+      start: "2019",
+      end: "2021",
+      companyName: "Alpha Ori",
+      title: "Tech Lead",
+      bulletPoints: [
+        "Lead development for onboard and cloud enterprise maritime analysis systems",
+        "Trained teams in test-driven methodologies",
+        "Collaborated with DevOps team on reducing product install time by days",
+        "Lead and mentored cross-cultural teams in multiple time zones"
+      ]
+    },
+    {
+      start: "2016",
+      end: '2019',
+      companyName: "Driven",
+      title: "Lead Developer",
+      bulletPoints: [
+        "Lead technology team at a publicly traded company (merged with OTC:STMH)",
+        "Created ecommerce sites, delivery logistics software and shared microservices",
+        "Audited regulatory compliance for the company's brand portfolio",
+        "Reported on development activities and strategy to the board of directors"
+      ]
+    },
+    {
+      start: "2012",
+      end: '2016',
+      companyName: "Locbit",
+      title: "Full Stack Developer",
+      bulletPoints: [
+        "Architected and implemented a scalable product capable of protocol agnostic building automation control using the MEAN stack",
+        "Led technical analysis and development of a commercial IoT solution in conjunction with Panasonic CPBD",
+        "Z-wave, ZigBee and DECT ULE network design and testing",
+        "Led "
+      ]
+    }
+  ]
 </script>
 
 <template>
@@ -27,51 +77,20 @@
   </div>
   </section>  
   <section id="resume-section" class="section">
-    <div class="resume-job">
-      <h2>2021 - Present: BallerTV</h2>
+    <h2>Experience</h2>
+    <div v-for="job in jobs" class="resume-job">
+      <h2>{{ job.start }} - {{ job.end }}: {{ job.title }} @ {{ job.companyName }}</h2>
       <ul>
-        <li>Lead developer for operations and scalability team</li>
-        <li>Leader in steering committees improving developer experience, DevOps and test automation</li>
-        <li>Provided on-call support to operations team executing content production nationwide</li>
-        <li>Improved tech stack leading to improved developer experience and faster feature turnaround</li>
-      </ul>
-    </div>
-    <div class="resume-job">
-      <h2>2019 - 2021: Alpha Ori</h2>
-      <ul>
-        <li>Lead development for onboard and cloud enterprise maritime analysis systems</li>
-        <li>Trained teams in test-driven methodologies</li>
-        <li>Collaborated with DevOps team on reducing product install time by days</li>
-        <li>Lead and mentored cross-cultural teams in multiple time zones</li>
-      </ul>
-    </div>
-    <div class="resume-job">
-      <h2>2016 - 2019: Tech Lead @ Driven Deliveries</h2>
-      <ul>
-        <li>Lead technology team at a publicly traded company (merged with OTC:STMH)</li>
-        <li>Created ecommerce sites, delivery logistics software and shared microservices</li>
-        <li>Audited regulatory compliance for the company's brand portfolio</li>
-        <li>Reported on development activities and strategy to the board of directors</li>
-      </ul>
-    </div>
-    <div class="resume-job">
-      <h2>2012 - 2016: Tech Lead @ Locbit</h2>
-      <ul>
-        <li>
-            Architected and implemented a scalable product capable of protocol agnostic
-            building automation control using the MEAN stack
-        </li>
-        <li>
-          Led technical analysis and development of a commercial IoT solution in conjunction with Panasonic CPBD
-        </li>
-        <li>
-          Z-wave, ZigBee and DECT ULE network design and testing
+        <li v-for="point in job.bulletPoints" class="resume-job__description">
+          {{ point }}
         </li>
       </ul>
     </div>
-    <a href="/resume.pdf" className="button-download" target="blank" rel="noopener noreferrer">
-        Download a copy
-    </a>
+    <div>
+      <button className="button-download">
+        <a href="/resume.pdf" target="blank" rel="noopener noreferrer">Download a copy</a>
+      </button>
+    </div>
   </section>
     <div className="footer">
       <p>
@@ -116,17 +135,86 @@
   }
 
   .links {
-    margin-top: 30px;
+    display: flex;
     flex-direction: column;
-    font-size: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    min-height: 20vh;
+    color: white;
+    margin-top: 30px;
+    font-size: 1.4rem;
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: black;
+    z-index: 9999;
+    padding: 1rem;
+
+  }
+
+  .resume-job {
+    padding: 1rem;
+    background-color: skyblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 4px rgba(0,0,0,0.4);
+    margin-top: 20px;
+    font-size: 1rem;
+    margin: 1rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .resume-job__description {
+    display: none;
+  }
 
 }
 
 @media screen and (min-width: 600px) {
   .links {
+    display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    min-height: 20vh;
+    font-size: 1rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .resume-job {
+    z-index: 9999;
+    padding: 2rem;
+    background-color: skyblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 4px rgba(0,0,0,0.4);
+    margin-top: 20px;
+    margin: 4rem;
+  }
+
+  .resume-job:hover {
+    animation-name: pop;
+    animation-duration: 750ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
   }
 }
 
@@ -167,13 +255,17 @@
   animation-fill-mode: forwards;
 }
 
-.links {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 5%;
-  min-height: 20vh;
-  font-size: 1rem;
+.content {
+  color: white;
+  font-weight: bold;
+}
+
+.section {
+  color: white;
+}
+
+.resume-job {
+  color: black;
 }
 
 .link {
@@ -185,6 +277,7 @@
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
+  color: white;
 }
 
 .link:hover {
@@ -192,14 +285,6 @@
   animation-duration: 750ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
 }
 
 .portrait {
@@ -210,23 +295,6 @@
   text-align: center;
   border-radius: 60px;
   border: 4px solid black;
-}
-
-.resume-job {
-  z-index: 9999;
-  padding: 2rem;
-  background-color: skyblue;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-shadow: 2px 4px rgba(0,0,0,0.4);
-  margin-top: 20px;
-}
-
-.resume-job:hover {
-  animation-name: pop;
-  animation-duration: 750ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease;
 }
 
 .button-download {
