@@ -7,9 +7,9 @@
       title: "Tech Lead",
       bulletPoints: [
         "Lead developer for operations and scalability team",
-        "Leader in steering committees improving developer experience, DevOps and test automation",
-        "Provided on-call support to operations team executing content production nationwide",
-        "Improved tech stack leading to improved developer experience and faster feature turnaround"
+        "Leader in improving developer experience, DevOps and test automation",
+        "On-call support for operations team executing content production globally",
+        "Upgraded & maintained tech stack leading to improved developer experience and faster feature turnaround"
       ]
     },
     {
@@ -49,27 +49,32 @@
       ]
     }
   ]
+
+  const downloadResume = () => {
+    alert('here');
+    window.location = '/resume.pdf';
+  }
 </script>
 
 <template>
   <div class="sparkle-background"></div>
-  <section id="main" className="section">
-    <div className="container">
-    <!-- <div className="title fade-out">Hello out there</div> -->
-    <div className="content">
-      <p>$ Hello there. I'm John, a <span className="role rotate">software developer<span className="blinking">_</span></span></p>
-      <div className="portrait"></div>
+  <section id="main" class="section">
+    <div class="container">
+    <!-- <div class="title fade-out">Hello out there</div> -->
+    <div class="content">
+      <p>$ Hello there. I'm John, a <span class="role rotate">software developer<span class="blinking">_</span></span></p>
+      <div class="portrait"></div>
     </div>    
-    <div className="content">
+    <div class="content">
       Check out what I'm up to      
-      <div className="links">
-        <a className="link" href="https://github.com/johnyatesiv" target="blank" rel="noopener noreferrer">
+      <div class="links">
+        <a class="link" href="https://github.com/johnyatesiv" target="blank" rel="noopener noreferrer">
           <v-icon name="px-git-commit" scale="2" /> Code
         </a>
-        <a className="link" href="#resume-section">
+        <a class="link" href="#resume-section">
           <v-icon name="hi-document-download" scale="2" /> Resume
         </a>
-        <a className="link" href="mailto:john.yatesiv@gmail.com?subject=Let's chat" target="blank" rel="noopener noreferrer">
+        <a class="link" href="mailto:johnyates-dev@proton.me?subject=Let's work together" target="blank" rel="noopener noreferrer">
           <v-icon name="fa-regular-handshake" scale="2" /> Hire me
         </a>
       </div>      
@@ -79,7 +84,8 @@
   <section id="resume-section" class="section">
     <h2>Experience</h2>
     <div v-for="job in jobs" class="resume-job">
-      <h2>{{ job.start }} - {{ job.end }}: {{ job.title }} @ {{ job.companyName }}</h2>
+      <h2>{{ job.start }} - {{ job.end }}</h2>
+      <p>{{ job.title }} @ {{ job.companyName }}</p>
       <ul>
         <li v-for="point in job.bulletPoints" class="resume-job__description">
           {{ point }}
@@ -87,12 +93,12 @@
       </ul>
     </div>
     <div>
-      <button className="button-download">
-        <a href="/resume.pdf" target="blank" rel="noopener noreferrer">Download a copy</a>
+      <button class="button-download" @click="downloadResume">
+        <a href="/public/resume.pdf" target="blank" rel="noopener noreferrer">Download a copy</a>
       </button>
     </div>
   </section>
-    <div className="footer">
+    <div class="footer">
       <p>
         <a href="https://creativecommons.org/licenses/by-nc/4.0/">
           <v-icon name="fa-creative-commons"></v-icon> BY-NC 2024
@@ -195,7 +201,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
   }
 
@@ -299,19 +305,19 @@
 
 .button-download {
   background-color: skyblue;
-  color: black;
-  border: none;
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+  letter-spacing: 2px;
+  border-radius: 10px;
   cursor: pointer;
   outline: none;
   margin-top: 24px;
+
+  a {
+    color: black;
+  }
 }
 
 .button-download:hover {
