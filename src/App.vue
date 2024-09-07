@@ -49,11 +49,6 @@
       ]
     }
   ]
-
-  const downloadResume = () => {
-    alert('here');
-    window.location = '/resume.pdf';
-  }
 </script>
 
 <template>
@@ -93,7 +88,7 @@
       </ul>
     </div>
     <div>
-      <button class="button-download" @click="downloadResume">
+      <button class="button-download">
         <a href="/public/resume.pdf" target="blank" rel="noopener noreferrer">Download a copy</a>
       </button>
     </div>
