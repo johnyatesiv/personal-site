@@ -2,8 +2,8 @@
   /* font-family: 'Handjet'; */
   font-family: monospace;
   line-height: 2;
-  font-weight: 400;
-  font-size: 1rem;
+  font-weight: 300;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   color-scheme: light dark;
   color: white;
@@ -84,7 +84,8 @@ ul {
     padding: 0;
     height: 100vh;
     max-height: 100vh;
-    background: linear-gradient(66deg, #44749b, #e2dd3e);
+    /* background: linear-gradient(66deg, #44749b, #e2dd3e); */
+    background: rgba(255, 255, 255, 0.59);
     background-size: 400% 400%;
     overflow: scroll;
   }
@@ -107,7 +108,8 @@ ul {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(66deg, #000000, #656e91);
+    /* background: linear-gradient(66deg, #000000, #656e91); */
+    background: rgba(29, 28, 28, 0.5);
     background-size: 400% 400%;
     color: white;
   }
@@ -172,30 +174,6 @@ ul {
   a { 
     color: white;
     cursor: pointer;
-  }
-}
-
-@keyframes ripple {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes sparkle {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
