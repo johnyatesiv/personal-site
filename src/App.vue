@@ -15,7 +15,7 @@
           <a class="link" href="/public/resume.pdf" target="blank">
             <v-icon name="hi-document-download" scale="2" /> Resume
           </a>
-          <a class="link" href="mailto:johnyates-dev@proton.me?subject=Let's chat" target="blank" rel="noopener noreferrer">
+          <a class="link" href="mailto:?subject=Let's chat" target="blank" rel="noopener noreferrer">
             <v-icon name="fa-regular-handshake" scale="2" /> Work with me
           </a>
         </div>      
