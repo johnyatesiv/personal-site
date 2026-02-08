@@ -1,27 +1,28 @@
 :root {
-  /* font-family: 'Handjet'; */
-  font-family: monospace;
-  line-height: 2;
-  font-weight: 300;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  color-scheme: light dark;
-  color: white;
+  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 16px;
+  color-scheme: light;
+  color: #2b2b2b;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
   -webkit-text-size-adjust: 100%;
 }
 
 a {
-  font-weight: 500;
-  color: white;
-  text-decoration: inherit;
+  font-weight: 400;
+  color: #2b2b2b;
+  text-decoration: underline;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #faf9f6;
+  background: #353230;
+}
+
+a:visited {
+  color: #7a7a7a;
 }
 
 body {
@@ -38,24 +39,24 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border: 2px solid #2b2b2b;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 400;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #faf9f6;
+  color: #2b2b2b;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: red;
+  background-color: #353230;
+  color: #faf9f6;
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #353230;
 }
 
 .card {
@@ -73,78 +74,22 @@ ul {
   text-align: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  html {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    max-height: 100vh;
-    /* background: linear-gradient(66deg, #44749b, #e2dd3e); */
-    background: rgba(255, 255, 255, 0.59);
-    background-size: 400% 400%;
-    overflow: scroll;
-  }
-
-  .content {
-    color: black;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    /* background: linear-gradient(66deg, #000000, #656e91); */
-    background: rgba(29, 28, 28, 0.5);
-    background-size: 400% 400%;
-    color: white;
-  }
+/* Softer artistic background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #e8e4df;
+}
 
-  .sparkle-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .sparkle-background::before,
-  .sparkle-background::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),
-      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 1px),
-      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 2px),
-      radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 2px);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-    animation: sparkle 10s linear infinite;
-  }
-  
-  .sparkle-background::after {
-    background-size: 200px 200px, 300px 300px, 250px 250px, 400px 400px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-    animation-duration: 15s;
-  }
+#app {
+  position: relative;
+  z-index: 2;
 }
 
 @media screen and (max-width: 600px) {
@@ -166,79 +111,28 @@ ul {
 
 .footer {
   margin-top: 120px;
-  color: white;
-  p {
-    color: white;
-  }
+  color: #2b2b2b;
+  border-top: 2px solid #353230;
+  padding-top: 2rem;
+}
 
-  a { 
-    color: white;
-    cursor: pointer;
-  }
+.footer p {
+  color: #2b2b2b;
+}
+
+.footer a {
+  color: #2b2b2b;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  background: #353230;
+  color: #faf9f6;
 }
 
 .hidden {
   display: none;
 }
 
-.blinking {
-  animation: blink 1s linear infinite;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    display: none;
-    font-size: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0.2;
-    font-size: 1.4rem;
-  }
-  to {
-    opacity: 1;
-    font-size: 2rem;
-  }
-}
-
-@keyframes slowFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes pop {
-  from {
-    scale: 1;
-  }
-  to {
-    scale: 1.1;
-  }
-}
-
-@keyframes unpop {
-  to {
-    scale: 1;
-  }
-}
+/* Removed decorative animations for brutalist aesthetic */
