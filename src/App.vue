@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-const wikiContent = ref<string>('')
+import { computed } from 'vue'
 
 // Fake visitor counter that increments based on time
 const visitorCount = computed(() => {
@@ -9,38 +8,6 @@ const visitorCount = computed(() => {
   const secondsSinceEpoch = Math.floor(Date.now() / 1000)
   const offset = Math.floor(secondsSinceEpoch / 100) // Slower increment
   return (baseCount + offset).toString().padStart(7, '0')
-})
-
-// Fetch Wikipedia's featured article
-const fetchWikipediaContent = async () => {
-  try {
-    // Use Wikipedia's API instead of scraping the page directly
-    const response = await fetch('https://en.wikipedia.org/api/rest_v1/page/html/Main_Page')
-    const html = await response.text()
-
-    // Parse the HTML
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(html, 'text/html')
-
-    // Get the mp-tfa div content
-    const tfaDiv = doc.getElementById('mp-tfa')
-    if (tfaDiv) {
-      // Get just the text content, clean it up
-      const text = tfaDiv.textContent?.trim().replace(/\s+/g, ' ') || ''
-      // Take first few sentences to keep it reasonable
-      const sentences = text.split('. ').slice(0, 3).join('. ')
-      wikiContent.value = "Did you know that " + sentences + (sentences.endsWith('.') ? '' : '. Isn\'t that interesting?')
-    }
-  } catch (error) {
-    console.error('Failed to fetch Wikipedia content:', error)
-    // Fallback content
-    wikiContent.value = 'Wikipedia is the free encyclopedia that anyone can edit.'
-  }
-}
-
-onMounted(() => {
-  // Fetch Wikipedia content
-  fetchWikipediaContent()
 })
 </script>
 
@@ -52,13 +19,8 @@ onMounted(() => {
     </div>
 
     <div class="content-box">
-      <div class="marquee-container">
-        <marquee v-if="wikiContent" :key="wikiContent" behavior="scroll" direction="left" scrollamount="6">
-          {{ wikiContent }}
-        </marquee>
-        <marquee v-else behavior="scroll" direction="left" scrollamount="6">
-          loading information...
-        </marquee>
+      <div class="bio">
+        Welcome to my website. Below you can find some links to check out what I'm up to.
       </div>
 
       <div class="links-section">
@@ -76,6 +38,9 @@ onMounted(() => {
           <a class="retro-button resume" href="https://jyiv-public.s3.us-east-1.amazonaws.com/John+Yates+Resume+2026.docx" target="_blank">
             [resume]
           </a>
+          <a class="retro-button music" href="https://daguerro.bandcamp.com/" target="_blank">
+            [music]
+          </a>
         </div>
       </div>
 
@@ -91,7 +56,6 @@ onMounted(() => {
   <div class="footer">
     <p>© 2024 John Yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
     <p class="built-with">Built with Vue + Vite</p>
-    <p class="built-with">Daily facts courtesy of Wikipedia</p>
   </div>
 </template>
 
@@ -104,6 +68,10 @@ onMounted(() => {
   padding: 2rem 1rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.bio {
+  text-align: left;
 }
 
 .theme-toggle {
@@ -155,8 +123,8 @@ onMounted(() => {
 /* Softer content box */
 .content-box {
   background: #faf9f6;
-  border: 3px solid #2b2b2b;
-  border-top: none;
+  border: 2px solid #2b2b2b;
+  /* border-top: none; */
   padding: 2rem;
   width: 100%;
   box-shadow: 4px 4px 0px rgba(107, 93, 84, 0.15);
