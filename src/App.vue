@@ -9,6 +9,8 @@ const visitorCount = computed(() => {
   const offset = Math.floor(secondsSinceEpoch / 100) // Slower increment
   return (baseCount + offset).toString().padStart(7, '0')
 })
+
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -20,12 +22,12 @@ const visitorCount = computed(() => {
 
     <div class="content-box">
       <div class="bio">
-        Welcome to my website. Below you can find some links to check out what I'm up to.
+        Welcome to my website. <br /> Below you can find some links to check out what I'm up to.
       </div>
 
       <div class="links-section">
         <h2 class="section-title">Links</h2>
-        <div class="links">
+        <div class="links grid-links">
           <a class="retro-button github" href="https://github.com/johnyatesiv" target="_blank" rel="noopener noreferrer">
             [github]
           </a>
@@ -42,6 +44,9 @@ const visitorCount = computed(() => {
             [music]
           </a>
         </div>
+        <p class="inspiration-credit">
+          Inspired by <a href="https://brutalistwebsites.com/" target="_blank" rel="noopener noreferrer">Brutalist web design</a>
+        </p>
       </div>
 
       <div class="visitor-counter">
@@ -54,7 +59,7 @@ const visitorCount = computed(() => {
   </section>
 
   <div class="footer">
-    <p>© 2024 John Yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+    <p>© {{ currentYear }} John Yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
     <p class="built-with">Built with Vue + Vite</p>
   </div>
 </template>
@@ -72,62 +77,70 @@ const visitorCount = computed(() => {
 
 .bio {
   text-align: left;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  padding: 1rem 0;
 }
 
 .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #faf9f6;
-  color: #2b2b2b;
-  border: 2px solid #2b2b2b;
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
   padding: 0.5rem 1rem;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 700;
   cursor: pointer;
   z-index: 1000;
 }
 
 .theme-toggle:hover {
-  background: #353230;
-  color: #faf9f6;
+  background: #000000;
+  color: #ffffff;
 }
 
-/* Softer artistic header */
+/* Harsh brutalist header */
 .header-box {
-  background: #faf9f6;
-  border: 3px solid #2b2b2b;
+  background: #ffffff;
+  border: 4px solid #000000;
   padding: 2rem;
   text-align: left;
   margin-bottom: 0;
-  box-shadow: 4px 4px 0px rgba(107, 93, 84, 0.15);
+  box-shadow: 6px 6px 0px #000000;
 }
 
 .glitch {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #2b2b2b;
+  font-weight: 900;
+  color: #000000;
   margin: 0;
-  letter-spacing: 0;
+  letter-spacing: -1px;
   text-transform: uppercase;
 }
 
 .subtitle {
   font-size: 1rem;
-  color: #4a4a4a;
+  color: #000000;
   margin: 0.5rem 0 0 0;
   font-style: normal;
   text-transform: lowercase;
+  font-weight: 600;
 }
 
-/* Softer content box */
+/* Harsh brutalist content box */
 .content-box {
-  background: #faf9f6;
-  border: 2px solid #2b2b2b;
+  background: #ffffff;
+  border: 3px solid #000000;
   /* border-top: none; */
   padding: 2rem;
   width: 100%;
-  box-shadow: 4px 4px 0px rgba(107, 93, 84, 0.15);
+  box-shadow: 6px 6px 0px #000000;
 }
 
 /* Softer marquee with warm accent */
@@ -145,16 +158,16 @@ marquee {
   color: #faf9f6;
 }
 
-/* Artistic section title with warm accent */
+/* Harsh brutalist section title */
 .section-title {
   text-align: left;
-  color: #2b2b2b;
+  color: #000000;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
   margin: 0 0 1rem 0;
-  letter-spacing: 0;
+  letter-spacing: -0.5px;
   text-transform: uppercase;
-  border-bottom: 2px solid #353230;
+  border-bottom: 3px solid #000000;
   padding-bottom: 0.5rem;
 }
 
@@ -164,23 +177,58 @@ marquee {
 
 .links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  gap: 10px;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.grid-links {
+  /* Remove outer border */
 }
 
 .retro-button {
-  display: block;
-  padding: 1rem;
-  border: 2px solid #2b2b2b;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  border: 3px solid #000000;
+  font-weight: 700;
   font-size: 1rem;
   text-decoration: none;
-  color: #2b2b2b;
-  background: #faf9f6;
+  color: #000000;
+  background: #ffffff;
   cursor: pointer;
-  text-align: left;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
+  position: relative;
+  min-height: 80px;
+  text-transform: lowercase;
+}
+
+/* Create Mondrian-style variations with grid spans */
+.github {
+  background: #ffffff;
+  grid-column: span 2;
+}
+
+.gitlab {
+  background: #f0f0f0;
+  grid-row: span 2;
+}
+
+.bluesky {
+  background: #ffffff;
+}
+
+.resume {
+  background: #000000;
+  color: #ffffff;
+}
+
+.music {
+  background: #f0f0f0;
+  grid-column: span 2;
 }
 
 .button-icon {
@@ -188,26 +236,53 @@ marquee {
 }
 
 .retro-button:hover {
-  background: #353230;
-  color: #faf9f6;
-  transform: translateY(-2px);
-  box-shadow: 2px 4px 0px rgba(107, 93, 84, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 0px #000000;
+  z-index: 10;
 }
 
-/* Visitor counter with warm accent */
+.resume:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Inspiration credit */
+.inspiration-credit {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: left;
+  font-weight: 600;
+}
+
+.inspiration-credit a {
+  color: #000000;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  font-weight: 700;
+}
+
+.inspiration-credit a:hover {
+  background: #000000;
+  color: #ffffff;
+  padding: 0 2px;
+}
+
+/* Harsh brutalist visitor counter */
 .visitor-counter {
   text-align: left;
   margin-top: 2rem;
   padding: 1rem 0;
-  border-top: 2px solid #353230;
+  border-top: 3px solid #000000;
 }
 
 .counter-label {
   font-size: 0.8rem;
   margin: 0 0 0.5rem 0;
   text-transform: uppercase;
-  font-weight: 400;
-  color: #4a4a4a;
+  font-weight: 700;
+  color: #000000;
 }
 
 .counter-digits {
@@ -222,12 +297,12 @@ marquee {
   height: 32px;
   line-height: 32px;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 700;
   font-family: 'Courier New', monospace;
-  border: 2px solid #2b2b2b;
+  border: 3px solid #000000;
   text-align: center;
-  background: #faf9f6;
-  color: #2b2b2b;
+  background: #ffffff;
+  color: #000000;
 }
 
 .built-with {
@@ -244,6 +319,19 @@ marquee {
 
   .links {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .retro-button {
+    min-height: 60px;
+    padding: 1.5rem 1rem;
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .retro-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 0px #000000;
   }
 
   .section-title {
