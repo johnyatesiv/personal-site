@@ -1,15 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-// Fake visitor counter that increments based on time
-const visitorCount = computed(() => {
-  // Base number + seconds since a fixed date to make it always increase
-  const baseCount = 420690
-  const secondsSinceEpoch = Math.floor(Date.now() / 1000)
-  const offset = Math.floor(secondsSinceEpoch / 100) // Slower increment
-  return (baseCount + offset).toString().padStart(7, '0')
-})
-
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -48,13 +37,6 @@ const currentYear = new Date().getFullYear();
           Inspired by <a href="https://brutalistwebsites.com/" target="_blank" rel="noopener noreferrer">Brutalist web design</a>
         </p>
       </div>
-
-      <div class="visitor-counter">
-        <p class="counter-label">Visitor:</p>
-        <div class="counter-digits">
-          <span v-for="(digit, index) in visitorCount" :key="index" class="digit">{{ digit }}</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -71,7 +53,7 @@ const currentYear = new Date().getFullYear();
   align-items: center;
   gap: 2rem;
   padding: 2rem 1rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -109,10 +91,11 @@ const currentYear = new Date().getFullYear();
 .header-box {
   background: #ffffff;
   border: 4px solid #000000;
-  padding: 2rem;
+  padding: 2rem 3rem;
   text-align: left;
   margin-bottom: 0;
   box-shadow: 6px 6px 0px #000000;
+  width: 100%;
 }
 
 .glitch {
@@ -138,7 +121,7 @@ const currentYear = new Date().getFullYear();
   background: #ffffff;
   border: 3px solid #000000;
   /* border-top: none; */
-  padding: 2rem;
+  padding: 2rem 3rem;
   width: 100%;
   box-shadow: 6px 6px 0px #000000;
 }
@@ -177,9 +160,9 @@ marquee {
 
 .links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(80px, auto);
-  gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(90px, auto);
+  gap: 12px;
   padding: 0;
   margin: 2rem 0;
 }
@@ -209,21 +192,26 @@ marquee {
 /* Create Mondrian-style variations with grid spans */
 .github {
   background: #ffffff;
-  grid-column: span 2;
+  grid-column: span 3;
+  grid-row: span 2;
 }
 
 .gitlab {
   background: #f0f0f0;
+  grid-column: span 2;
   grid-row: span 2;
 }
 
 .bluesky {
   background: #ffffff;
+  grid-column: span 1;
+  grid-row: span 2;
 }
 
 .resume {
   background: #000000;
   color: #ffffff;
+  grid-column: span 4;
 }
 
 .music {
@@ -248,8 +236,9 @@ marquee {
 
 /* Inspiration credit */
 .inspiration-credit {
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px solid #000000;
   font-size: 0.9rem;
   color: #000000;
   text-align: left;
@@ -269,42 +258,6 @@ marquee {
   padding: 0 2px;
 }
 
-/* Harsh brutalist visitor counter */
-.visitor-counter {
-  text-align: left;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  border-top: 3px solid #000000;
-}
-
-.counter-label {
-  font-size: 0.8rem;
-  margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #000000;
-}
-
-.counter-digits {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2px;
-}
-
-.digit {
-  display: inline-block;
-  width: 24px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: 'Courier New', monospace;
-  border: 3px solid #000000;
-  text-align: center;
-  background: #ffffff;
-  color: #000000;
-}
-
 .built-with {
   font-style: normal;
   margin-top: 0.5rem;
@@ -312,21 +265,117 @@ marquee {
 
 /* Animations removed for brutalist aesthetic */
 
+/* Medium desktop view */
+@media screen and (max-width: 1200px) {
+  .links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .github {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gitlab {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .bluesky {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .resume {
+    grid-column: span 3;
+  }
+
+  .music {
+    grid-column: span 1;
+  }
+}
+
+/* Tablet view */
+@media screen and (max-width: 900px) {
+  .links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .github {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .gitlab {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .bluesky {
+    grid-column: span 1;
+  }
+
+  .resume {
+    grid-column: span 2;
+  }
+
+  .music {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
 @media screen and (max-width: 600px) {
+  .section {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-box {
+    margin: 0 1rem 1.5rem 1rem;
+  }
+
+  .content-box {
+    margin: 0 1rem 2rem 1rem;
+  }
+
   .glitch {
     font-size: 1.8rem;
   }
 
   .links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
   .retro-button {
     min-height: 60px;
     padding: 1.5rem 1rem;
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
+  }
+
+  /* Mobile grid variations */
+  .github {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .gitlab {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .bluesky {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .resume {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .music {
+    grid-column: span 2;
+    grid-row: span 1;
   }
 
   .retro-button:hover {
@@ -338,8 +387,12 @@ marquee {
     font-size: 1.5rem;
   }
 
-  .header-box {
+  .header-box, .content-box {
     padding: 1.5rem;
+  }
+
+  .footer {
+    margin-top: 3rem;
   }
 }
 </style>

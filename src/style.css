@@ -80,40 +80,40 @@ html {
   min-height: 100vh;
 }
 
-/* Harsh industrial brutalist background */
+/* Harsh industrial brutalist background - lighter */
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    /* Industrial concrete gradient */
+    /* Lighter industrial concrete gradient */
     linear-gradient(
       135deg,
-      #d4d4d4 0%,
-      #a0a0a0 20%,
-      #707070 40%,
-      #505050 60%,
-      #303030 80%,
-      #1a1a1a 100%
+      #e0e0e0 0%,
+      #c0c0c0 20%,
+      #a0a0a0 40%,
+      #808080 60%,
+      #606060 80%,
+      #404040 100%
     ),
     /* Heavy steel cross-beams */
     repeating-linear-gradient(
       45deg,
       transparent,
       transparent 60px,
-      rgba(0, 0, 0, 0.4) 60px,
-      rgba(0, 0, 0, 0.4) 68px
+      rgba(0, 0, 0, 0.3) 60px,
+      rgba(0, 0, 0, 0.3) 68px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 60px,
-      rgba(0, 0, 0, 0.3) 60px,
-      rgba(0, 0, 0, 0.3) 68px
+      rgba(0, 0, 0, 0.25) 60px,
+      rgba(0, 0, 0, 0.25) 68px
     ),
     /* Industrial rivets pattern */
     radial-gradient(
       circle at 50px 50px,
-      rgba(0, 0, 0, 0.2) 2px,
+      rgba(0, 0, 0, 0.15) 2px,
       transparent 2px
     );
   background-size: 100% 100%, 100% 100%, 100% 100%, 100px 100px;
