@@ -145,7 +145,7 @@ body {
 .footer {
   margin-top: 120px;
   color: #000000;
-  border-top: 4px solid #000000;
+  border-top: 4px solid #33FF99;
   padding-top: 2rem;
 }
 
@@ -155,14 +155,14 @@ body {
 }
 
 .footer a {
-  color: #000000;
+  color: #FF3333;
   cursor: pointer;
   text-decoration: underline;
   font-weight: 700;
 }
 
 .footer a:hover {
-  background: #000000;
+  background: #FF3333;
   color: #ffffff;
   padding: 0 2px;
 }

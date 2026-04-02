@@ -66,6 +66,8 @@ const currentYear = new Date().getFullYear();
   letter-spacing: -0.5px;
   line-height: 1.2;
   padding: 1rem 0;
+  border-left: 6px solid #FFD700;
+  padding-left: 1rem;
 }
 
 .theme-toggle {
@@ -91,6 +93,7 @@ const currentYear = new Date().getFullYear();
 .header-box {
   background: #ffffff;
   border: 4px solid #000000;
+  border-left: 12px solid #FF3333;
   padding: 2rem 3rem;
   text-align: left;
   margin-bottom: 0;
@@ -109,17 +112,18 @@ const currentYear = new Date().getFullYear();
 
 .subtitle {
   font-size: 1rem;
-  color: #000000;
+  color: #3366FF;
   margin: 0.5rem 0 0 0;
   font-style: normal;
   text-transform: lowercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Harsh brutalist content box */
 .content-box {
   background: #ffffff;
   border: 3px solid #000000;
+  border-right: 12px solid #3366FF;
   /* border-top: none; */
   padding: 2rem 3rem;
   width: 100%;
@@ -144,13 +148,13 @@ marquee {
 /* Harsh brutalist section title */
 .section-title {
   text-align: left;
-  color: #000000;
+  color: #FF3333;
   font-size: 1.5rem;
   font-weight: 900;
   margin: 0 0 1rem 0;
   letter-spacing: -0.5px;
   text-transform: uppercase;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid #FF3333;
   padding-bottom: 0.5rem;
 }
 
@@ -189,34 +193,43 @@ marquee {
   text-transform: lowercase;
 }
 
-/* Create Mondrian-style variations with grid spans */
+/* Bold brutalist color scheme */
 .github {
-  background: #ffffff;
+  background: #FF3333;
+  color: #ffffff;
   grid-column: span 3;
   grid-row: span 2;
+  font-weight: 900;
 }
 
 .gitlab {
-  background: #f0f0f0;
+  background: #FF9933;
+  color: #000000;
   grid-column: span 2;
   grid-row: span 2;
+  font-weight: 900;
 }
 
 .bluesky {
-  background: #ffffff;
+  background: #3366FF;
+  color: #ffffff;
   grid-column: span 1;
   grid-row: span 2;
+  font-weight: 900;
 }
 
 .resume {
   background: #000000;
-  color: #ffffff;
+  color: #FFD700;
   grid-column: span 4;
+  font-weight: 900;
 }
 
 .music {
-  background: #f0f0f0;
+  background: #33FF99;
+  color: #000000;
   grid-column: span 2;
+  font-weight: 900;
 }
 
 .button-icon {
@@ -227,10 +240,11 @@ marquee {
   transform: translateY(-5px);
   box-shadow: 0 8px 0px #000000;
   z-index: 10;
+  filter: brightness(1.2);
 }
 
 .resume:hover {
-  background: #ffffff;
+  background: #FFD700;
   color: #000000;
 }
 
@@ -238,7 +252,7 @@ marquee {
 .inspiration-credit {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 3px solid #000000;
+  border-top: 3px solid #FF9933;
   font-size: 0.9rem;
   color: #000000;
   text-align: left;
@@ -246,14 +260,14 @@ marquee {
 }
 
 .inspiration-credit a {
-  color: #000000;
+  color: #3366FF;
   text-decoration: underline;
   transition: all 0.2s ease;
   font-weight: 700;
 }
 
 .inspiration-credit a:hover {
-  background: #000000;
+  background: #3366FF;
   color: #ffffff;
   padding: 0 2px;
 }
