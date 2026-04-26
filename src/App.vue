@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 <template>
   <section id="main" class="section">
     <div class="header-box">
-      <h1 class="glitch">John Yates</h1>
+      <img src="/name.svg" alt="John Yates" class="name-svg" />
       <p class="subtitle">software developer / internet explorer / general enthusiast</p>
     </div>
 
@@ -15,7 +15,6 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="links-section">
-        <h2 class="section-title">Links</h2>
         <div class="links grid-links">
           <a class="retro-button github" href="https://github.com/johnyatesiv" target="_blank" rel="noopener noreferrer">
             [github]
@@ -41,8 +40,8 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <div class="footer">
-    <p>© {{ currentYear }} John Yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
-    <p class="built-with">Built with Vue + Vite</p>
+    <p>© {{ currentYear }} john yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">cc by-nc 4.0</a></p>
+    <p class="built-with">built with vue + vite</p>
   </div>
 </template>
 
@@ -62,7 +61,7 @@ const currentYear = new Date().getFullYear();
   font-weight: 900;
   font-size: 1.1rem;
   color: #000000;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: -0.5px;
   line-height: 1.2;
   padding: 1rem 0;
@@ -101,13 +100,12 @@ const currentYear = new Date().getFullYear();
   width: 100%;
 }
 
-.glitch {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: #000000;
+.name-svg {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   margin: 0;
-  letter-spacing: -1px;
-  text-transform: uppercase;
 }
 
 .subtitle {
@@ -153,7 +151,7 @@ marquee {
   font-weight: 900;
   margin: 0 0 1rem 0;
   letter-spacing: -0.5px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   border-bottom: 3px solid #FF3333;
   padding-bottom: 0.5rem;
 }
@@ -193,43 +191,66 @@ marquee {
   text-transform: lowercase;
 }
 
-/* Bold brutalist color scheme */
+/* Muted newsprint card backgrounds */
+.github,
+.gitlab,
+.bluesky,
+.resume,
+.music {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  filter: grayscale(100%);
+  transition: all 0.1s ease, filter 0.3s ease;
+}
+
+.github:hover,
+.gitlab:hover,
+.bluesky:hover,
+.resume:hover,
+.music:hover {
+  filter: grayscale(0%) brightness(1.1);
+}
+
+/* Photo: unsplash.com/photo-1504328345606-18bbc8c9d7d1 — Unsplash License */
 .github {
-  background: #FF3333;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-github.jpg') center/cover no-repeat;
   color: #ffffff;
   grid-column: span 3;
   grid-row: span 2;
-  font-weight: 900;
 }
 
+/* Photo: unsplash.com/photo-1451187580459-43490279c0fa — Unsplash License */
 .gitlab {
-  background: #FF9933;
-  color: #000000;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-gitlab.jpg') center/cover no-repeat;
+  color: #ffffff;
   grid-column: span 2;
   grid-row: span 2;
-  font-weight: 900;
 }
 
+/* Photo: unsplash.com/photo-1518770660439-4636190af475 — Unsplash License */
 .bluesky {
-  background: #3366FF;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-bluesky.jpg') center/cover no-repeat;
   color: #ffffff;
   grid-column: span 1;
   grid-row: span 2;
-  font-weight: 900;
 }
 
+/* Photo: unsplash.com/photo-1494145904049-0dca59b4bbad — Unsplash License */
 .resume {
-  background: #000000;
-  color: #FFD700;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-resume.jpg') center/cover no-repeat;
+  color: #ffffff;
   grid-column: span 4;
-  font-weight: 900;
 }
 
+/* Photo: Komarov Egor via Unsplash (unsplash.com/photos/srD1kUfvV_0) — Unsplash License */
 .music {
-  background: #33FF99;
-  color: #000000;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-music.jpg') center/cover no-repeat;
+  color: #ffffff;
   grid-column: span 2;
-  font-weight: 900;
 }
 
 .button-icon {
@@ -240,12 +261,7 @@ marquee {
   transform: translateY(-5px);
   box-shadow: 0 8px 0px #000000;
   z-index: 10;
-  filter: brightness(1.2);
-}
-
-.resume:hover {
-  background: #FFD700;
-  color: #000000;
+  filter: brightness(1.3) contrast(1.1);
 }
 
 /* Inspiration credit */
@@ -275,6 +291,7 @@ marquee {
 .built-with {
   font-style: normal;
   margin-top: 0.5rem;
+  text-transform: lowercase;
 }
 
 /* Animations removed for brutalist aesthetic */
@@ -352,8 +369,8 @@ marquee {
     margin: 0 1rem 2rem 1rem;
   }
 
-  .glitch {
-    font-size: 1.8rem;
+  .name-svg {
+    max-width: 100%;
   }
 
   .links {
@@ -397,16 +414,16 @@ marquee {
     box-shadow: 0 5px 0px #000000;
   }
 
-  .section-title {
-    font-size: 1.5rem;
-  }
-
   .header-box, .content-box {
     padding: 1.5rem;
   }
 
   .footer {
     margin-top: 3rem;
+
+    p {
+      text-transform: lowercase;
+    }
   }
 }
 </style>
