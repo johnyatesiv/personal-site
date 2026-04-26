@@ -25,8 +25,8 @@ const currentYear = new Date().getFullYear();
           <a class="retro-button bluesky" href="https://bsky.app/profile/daguerro.bsky.social" target="_blank" rel="noopener noreferrer">
             [bluesky]
           </a>
-          <a class="retro-button resume" href="https://jyiv-public.s3.us-east-1.amazonaws.com/John+Yates+Resume+2026.docx" target="_blank">
-            [resume]
+          <a class="retro-button linkedin" href="https://www.linkedin.com/in/john-yates-web/" target="_blank" rel="noopener noreferrer">
+            [linkedin]
           </a>
           <a class="retro-button music" href="https://daguerro.bandcamp.com/" target="_blank">
             [music]
@@ -195,7 +195,7 @@ marquee {
 .github,
 .gitlab,
 .bluesky,
-.resume,
+.linkedin,
 .music {
   background-size: cover;
   background-position: center;
@@ -210,7 +210,7 @@ marquee {
 .github:hover,
 .gitlab:hover,
 .bluesky:hover,
-.resume:hover,
+.linkedin:hover,
 .music:hover {
   filter: grayscale(0%) brightness(1.1);
 }
@@ -240,8 +240,8 @@ marquee {
 }
 
 /* Photo: unsplash.com/photo-1494145904049-0dca59b4bbad — Unsplash License */
-.resume {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-resume.jpg') center/cover no-repeat;
+.linkedin {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-linkedin.jpg') center/cover no-repeat;
   color: #ffffff;
   grid-column: span 4;
 }
@@ -317,7 +317,7 @@ marquee {
     grid-row: span 2;
   }
 
-  .resume {
+  .linkedin {
     grid-column: span 3;
   }
 
@@ -346,7 +346,7 @@ marquee {
     grid-column: span 1;
   }
 
-  .resume {
+  .linkedin {
     grid-column: span 2;
   }
 
@@ -399,7 +399,7 @@ marquee {
     grid-row: span 1;
   }
 
-  .resume {
+  .linkedin {
     grid-column: span 1;
     grid-row: span 1;
   }
