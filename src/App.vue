@@ -1,429 +1,213 @@
 <script setup lang="ts">
 const currentYear = new Date().getFullYear();
+
+const links = [
+  { label: 'github', href: 'https://github.com/johnyatesiv', note: 'code' },
+  { label: 'gitlab', href: 'https://gitlab.com/johnyatesiv', note: 'code' },
+  { label: 'bluesky', href: 'https://bsky.app/profile/daguerro.bsky.social', note: 'social' },
+  { label: 'linkedin', href: 'https://www.linkedin.com/in/john-yates-web/', note: 'work' },
+  { label: 'music', href: 'https://daguerro.bandcamp.com/', note: 'bandcamp' },
+];
 </script>
 
 <template>
-  <section id="main" class="section">
-    <div class="header-box">
-      <img src="/name.svg" alt="John Yates" class="name-svg" />
-      <p class="subtitle">software developer / internet explorer / general enthusiast</p>
-    </div>
-
-    <div class="content-box">
-      <div class="bio">
-        Welcome to my website. <br /> Below you can find some links to check out what I'm up to.
+  <div class="page">
+    <header class="masthead">
+      <picture>
+        <source srcset="/header.webp" type="image/webp" />
+        <img src="/header.png" alt="" class="portrait" width="450" height="597" />
+      </picture>
+      <div class="masthead-text">
+        <h1 class="name">john yates</h1>
+        <p class="subtitle">software developer / internet explorer / general enthusiast</p>
       </div>
+    </header>
 
-      <div class="links-section">
-        <div class="links grid-links">
-          <a class="retro-button github" href="https://github.com/johnyatesiv" target="_blank" rel="noopener noreferrer">
-            [github]
-          </a>
-          <a class="retro-button gitlab" href="https://gitlab.com/johnyatesiv" target="_blank" rel="noopener noreferrer">
-            [gitlab]
-          </a>
-          <a class="retro-button bluesky" href="https://bsky.app/profile/daguerro.bsky.social" target="_blank" rel="noopener noreferrer">
-            [bluesky]
-          </a>
-          <a class="retro-button linkedin" href="https://www.linkedin.com/in/john-yates-web/" target="_blank" rel="noopener noreferrer">
-            [linkedin]
-          </a>
-          <a class="retro-button music" href="https://daguerro.bandcamp.com/" target="_blank">
-            [music]
-          </a>
-        </div>
-        <p class="inspiration-credit">
-          Inspired by <a href="https://brutalistwebsites.com/" target="_blank" rel="noopener noreferrer">Brutalist web design</a>
-        </p>
-      </div>
-    </div>
-  </section>
+    <section class="intro">
+      <p>Welcome to my website.</p>
+      <p>Below you can find some links to check out what I'm up to.</p>
+    </section>
 
-  <div class="footer">
-    <p>© {{ currentYear }} john yates | <a href="https://creativecommons.org/licenses/by-nc/4.0/">cc by-nc 4.0</a></p>
-    <p class="built-with">built with vue + vite</p>
+    <nav class="index" aria-label="Links">
+      <ul class="index-list">
+        <li v-for="link in links" :key="link.label" class="index-item">
+          <a :href="link.href" target="_blank" rel="noopener noreferrer">
+            <span class="item-label">{{ link.label }}</span>
+            <span class="item-note">{{ link.note }}</span>
+            <span class="item-mark" aria-hidden="true">&#8599;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <footer class="footer">
+      <p>&copy; {{ currentYear }} john yates</p>
+      <p>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">cc by-nc 4.0</a>
+        &nbsp;/&nbsp; built with vue + vite
+      </p>
+    </footer>
   </div>
 </template>
 
 <style scoped>
-.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.bio {
-  text-align: left;
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: #000000;
-  text-transform: lowercase;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-  padding: 1rem 0;
-  border-left: 6px solid #FFD700;
-  padding-left: 1rem;
-}
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #ffffff;
-  color: #000000;
-  border: 3px solid #000000;
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.theme-toggle:hover {
-  background: #000000;
-  color: #ffffff;
-}
-
-/* Harsh brutalist header */
-.header-box {
-  background: #ffffff;
-  border: 4px solid #000000;
-  border-left: 12px solid #FF3333;
-  padding: 2rem 3rem;
-  text-align: left;
-  margin-bottom: 0;
-  box-shadow: 6px 6px 0px #000000;
+.page {
   width: 100%;
+  margin: 0;
+  padding: 100px 50px 60px;
+  box-sizing: border-box;
 }
 
-.name-svg {
+/* Masthead */
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: solid 1px var(--rule);
+}
+
+/* Transparent cutout — sits directly on the ground, no frame.
+   <picture> is the flex child, so it carries the sizing. */
+.masthead picture {
+  flex: 0 0 auto;
+  display: block;
+  width: 150px;
+}
+
+.portrait {
   display: block;
   width: 100%;
-  max-width: 600px;
   height: auto;
+}
+
+.masthead-text {
+  padding-bottom: 8px;
+}
+
+.name {
   margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.04em;
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: #3366FF;
-  margin: 0.5rem 0 0 0;
-  font-style: normal;
-  text-transform: lowercase;
-  font-weight: 700;
+  margin: 10px 0 0;
+  color: var(--muted);
 }
 
-/* Harsh brutalist content box */
-.content-box {
-  background: #ffffff;
-  border: 3px solid #000000;
-  border-right: 12px solid #3366FF;
-  /* border-top: none; */
-  padding: 2rem 3rem;
-  width: 100%;
-  box-shadow: 6px 6px 0px #000000;
+/* Intro */
+/* Rule spans the full width; the prose itself stays at a readable measure. */
+.intro {
+  padding: 30px 0;
+  border-bottom: solid 1px var(--rule);
 }
 
-/* Softer marquee with warm accent */
-.marquee-container {
-  background: #353230;
-  background: #353230;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 0;
+.intro p {
+  max-width: 60ch;
 }
 
-marquee {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: #faf9f6;
+/* Index */
+.index {
+  padding-top: 60px;
 }
 
-/* Harsh brutalist section title */
-.section-title {
-  text-align: left;
-  color: #FF3333;
-  font-size: 1.5rem;
-  font-weight: 900;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.5px;
-  text-transform: lowercase;
-  border-bottom: 3px solid #FF3333;
-  padding-bottom: 0.5rem;
+.index-list {
+  border-top: solid 1px var(--rule);
 }
 
-.links-section {
-  margin: 1rem 0;
+.index-item {
+  border-bottom: solid 1px var(--rule);
 }
 
-.links {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: minmax(90px, auto);
-  gap: 12px;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.grid-links {
-  /* Remove outer border */
-}
-
-.retro-button {
+.index-item a {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
-  border: 3px solid #000000;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #000000;
-  background: #ffffff;
-  cursor: pointer;
-  transition: all 0.1s ease;
-  position: relative;
-  min-height: 80px;
-  text-transform: lowercase;
+  align-items: baseline;
+  gap: 20px;
+  padding: 18px 0;
+  transition: padding 0.15s ease, color 0.15s ease;
 }
 
-/* Muted newsprint card backgrounds */
-.github,
-.gitlab,
-.bluesky,
-.linkedin,
-.music {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  font-weight: 900;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  filter: grayscale(100%);
-  transition: all 0.1s ease, filter 0.3s ease;
+/* Label takes the slack; the note sits in a fixed column so the
+   arrow never drifts to the far edge on a wide viewport. */
+.item-label {
+  flex: 1 1 auto;
 }
 
-.github:hover,
-.gitlab:hover,
-.bluesky:hover,
-.linkedin:hover,
-.music:hover {
-  filter: grayscale(0%) brightness(1.1);
+.item-note {
+  flex: 0 0 auto;
+  width: 10ch;
+  color: var(--muted);
 }
 
-/* Photo: unsplash.com/photo-1504328345606-18bbc8c9d7d1 — Unsplash License */
-.github {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-github.jpg') center/cover no-repeat;
-  color: #ffffff;
-  grid-column: span 3;
-  grid-row: span 2;
+.item-mark {
+  width: 1.2em;
+  text-align: right;
+  color: var(--muted);
 }
 
-/* Photo: unsplash.com/photo-1451187580459-43490279c0fa — Unsplash License */
-.gitlab {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-gitlab.jpg') center/cover no-repeat;
-  color: #ffffff;
-  grid-column: span 2;
-  grid-row: span 2;
+@media (hover: hover) {
+  .index-item a:hover {
+    padding-left: 12px;
+  }
+
+  .index-item a:hover .item-mark,
+  .index-item a:hover .item-note {
+    color: var(--ink);
+  }
 }
 
-/* Photo: unsplash.com/photo-1518770660439-4636190af475 — Unsplash License */
-.bluesky {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-bluesky.jpg') center/cover no-repeat;
-  color: #ffffff;
-  grid-column: span 1;
-  grid-row: span 2;
+.index-item a:focus-visible {
+  outline: solid 1px var(--rule);
+  outline-offset: 2px;
 }
 
-/* Photo: unsplash.com/photo-1494145904049-0dca59b4bbad — Unsplash License */
-.linkedin {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-linkedin.jpg') center/cover no-repeat;
-  color: #ffffff;
-  grid-column: span 4;
+/* Footer */
+.footer {
+  margin-top: 100px;
+  padding-top: 20px;
+  border-top: solid 1px var(--rule);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Photo: Komarov Egor via Unsplash (unsplash.com/photos/srD1kUfvV_0) — Unsplash License */
-.music {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/bg-music.jpg') center/cover no-repeat;
-  color: #ffffff;
-  grid-column: span 2;
-}
-
-.button-icon {
-  display: none;
-}
-
-.retro-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 0px #000000;
-  z-index: 10;
-  filter: brightness(1.3) contrast(1.1);
-}
-
-/* Inspiration credit */
-.inspiration-credit {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 3px solid #FF9933;
-  font-size: 0.9rem;
-  color: #000000;
-  text-align: left;
-  font-weight: 600;
-}
-
-.inspiration-credit a {
-  color: #3366FF;
+.footer a {
   text-decoration: underline;
-  transition: all 0.2s ease;
-  font-weight: 700;
+  text-underline-offset: 2px;
 }
 
-.inspiration-credit a:hover {
-  background: #3366FF;
-  color: #ffffff;
-  padding: 0 2px;
-}
-
-.built-with {
-  font-style: normal;
-  margin-top: 0.5rem;
-  text-transform: lowercase;
-}
-
-/* Animations removed for brutalist aesthetic */
-
-/* Medium desktop view */
-@media screen and (max-width: 1200px) {
-  .links {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .github {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .gitlab {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
-  .bluesky {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
-  .linkedin {
-    grid-column: span 3;
-  }
-
-  .music {
-    grid-column: span 1;
-  }
-}
-
-/* Tablet view */
-@media screen and (max-width: 900px) {
-  .links {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .github {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  .gitlab {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
-  .bluesky {
-    grid-column: span 1;
-  }
-
-  .linkedin {
-    grid-column: span 2;
-  }
-
-  .music {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
+.footer a:hover {
+  color: var(--ink);
 }
 
 @media screen and (max-width: 600px) {
-  .section {
-    padding: 1rem 1.5rem;
+  .page {
+    padding: 50px 25px 40px;
   }
 
-  .header-box {
-    margin: 0 1rem 1.5rem 1rem;
+  .item-note {
+    display: none;
   }
 
-  .content-box {
-    margin: 0 1rem 2rem 1rem;
+  .masthead {
+    gap: 20px;
   }
 
-  .name-svg {
-    max-width: 100%;
+  .masthead picture {
+    width: 90px;
   }
 
-  .links {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .retro-button {
-    min-height: 60px;
-    padding: 1.5rem 1rem;
-  }
-
-  /* Mobile grid variations */
-  .github {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  .gitlab {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
-  .bluesky {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .linkedin {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .music {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  .retro-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 0px #000000;
-  }
-
-  .header-box, .content-box {
-    padding: 1.5rem;
+  .name {
+    font-size: 1.875rem;
   }
 
   .footer {
-    margin-top: 3rem;
-
-    p {
-      text-transform: lowercase;
-    }
+    margin-top: 60px;
   }
 }
 </style>

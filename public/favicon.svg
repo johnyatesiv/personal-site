@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Sun: solid disc with eight rays. Original geometric artwork,
+       drawn to match the site's desert palette. -->
+  <g fill="none" stroke="#c1663a" stroke-width="5" stroke-linecap="round">
+    <!-- cardinal rays -->
+    <line x1="32" y1="4"  x2="32" y2="13" />
+    <line x1="32" y1="51" x2="32" y2="60" />
+    <line x1="4"  y1="32" x2="13" y2="32" />
+    <line x1="51" y1="32" x2="60" y2="32" />
+    <!-- diagonal rays -->
+    <line x1="12.2" y1="12.2" x2="18.6" y2="18.6" />
+    <line x1="45.4" y1="45.4" x2="51.8" y2="51.8" />
+    <line x1="12.2" y1="51.8" x2="18.6" y2="45.4" />
+    <line x1="45.4" y1="18.6" x2="51.8" y2="12.2" />
+  </g>
+  <circle cx="32" cy="32" r="13" fill="#c1663a" />
+</svg>

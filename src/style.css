@@ -1,142 +1,78 @@
 :root {
-  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
-  line-height: 1.4;
-  font-weight: 400;
-  font-size: 16px;
+  /* Very slightly warm near-black, so the ink sits with the earth
+     tones rather than reading as a cool grey on top of them. */
+  --ink: #1c1a18;
+  --paper: #ffffff;
+  --rule: #1c1a18;
+  /* Warm grey, dark enough to clear WCAG AA (4.5:1) even at the
+     darkest end of the gradient. */
+  --muted: #54504a;
+
+  /* Desert gradient: pale sky at the top, dusty earth at the bottom.
+     Both endpoints are kept very light so --ink holds a strong
+     contrast ratio the whole way down the page. */
+  --sky: #eaf0f4;
+  --earth: #d9c9b8;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial,
+    'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  line-height: 1.66667;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   color-scheme: light;
-  color: #000000;
+  color: var(--ink);
   font-synthesis: none;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 600;
-  color: #000000;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #ffffff;
-  background: #000000;
-}
-
-a:visited {
-  color: #404040;
+/* Gradient lives on html so it always fills the viewport and does not
+   tile on overscroll, even when the page content is short. */
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--sky) 0%, var(--earth) 100%);
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border: 3px solid #000000;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 700;
-  font-family: inherit;
-  background-color: #ffffff;
-  color: #000000;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 3px solid #000000;
-}
-
-.card {
-  padding: 2em;
-}
-
-ul {
-  list-style-type: none;
+  background: transparent;
+  color: var(--ink);
 }
 
 #app {
   width: 100%;
   margin: 0;
-  padding: 1vw;
-  text-align: center;
+  padding: 0;
+  text-align: left;
 }
 
-html {
+a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-}
-
-/* Harsh industrial brutalist background - lighter */
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #ffffff;
-}
-
-#app {
-  position: relative;
-  z-index: 2;
-}
-
-@media screen and (max-width: 600px) {
-  #app {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-  }
-
-  :root {
-    
-  }
-}
-
-.section {
-  
-}
-
-.footer {
-  margin-top: 120px;
-  color: #000000;
-  border-top: none;
-  padding-top: 2rem;
-  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
-}
-
-.footer p {
-  color: #000000;
-  font-weight: 600;
-}
-
-.footer a {
-  color: #FF3333;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: 700;
-}
-
-.footer a:hover {
-  background: #FF3333;
-  color: #ffffff;
-  padding: 0 2px;
+  list-style: none;
 }
 
 .hidden {
   display: none;
 }
-
-/* Removed decorative animations for brutalist aesthetic */
